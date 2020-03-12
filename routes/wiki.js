@@ -33,5 +33,13 @@ wikiRouter.post('/', async (req, res)=> {
 
 });
 
+// wikiRouter.get('/:slug', async(req, res) => {
+//     const post = await Page.findOne({
+//         where: {slug: req.params.slug}
+//     })
+//     console.log("-----------", post, "-----------")
+//     res.send(`hit dynamic route at ${post}`)
+// })
+
 
 module.exports = wikiRouter;
