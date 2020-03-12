@@ -4,4 +4,4 @@ userRouter.get('/', async (req, res)=> {
    await res.send('')
 });
 
-module.exports = {userRouter};
+module.exports = userRouter;

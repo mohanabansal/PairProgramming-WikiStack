@@ -16,18 +16,15 @@ app.use(morgan("dev"));
 
 app.use(express.static(__dirname + "/stylesheets"));
 
-app.use('/wiki', wikiRouter)
+app.use(express.urlencoded({extended: false}));
 
+app.use('/wiki', wikiRouter);
 
 const connect = async () => {
-  await db.sync();
+  await db.sync({force: true});
 };
 
 connect();
-
-app.get("/", async (req, res) => {
-  await res.send("");
-});
 
 app.listen(3000, () => {
   console.log("http://localhost:3000");

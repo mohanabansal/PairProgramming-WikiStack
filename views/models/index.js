@@ -1,10 +1,10 @@
 const Sequlize = require('sequelize');
 const db = new Sequlize('postgres://localhost:5432/wikistack', {logging: false})
 
-db.authenticate().
-then(() => {
-  console.log('connected to the database');
-})
+// db.authenticate().
+// then(() => {
+//   console.log('connected to the database');
+// })
 
 const Page = db.define('page', {
     title: {

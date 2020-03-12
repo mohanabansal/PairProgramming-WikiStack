@@ -10,8 +10,8 @@ wikiRouter.post('/', async (req, res)=> {
 });
 
 wikiRouter.get('/add', async (req, res)=> {
-    await res.send(addPage)
+    await res.send(addPage())
 });
 
 
-module.exports = {wikiRouter};
+module.exports = wikiRouter;
