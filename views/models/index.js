@@ -1,5 +1,5 @@
 const Sequlize = require('sequelize');
-const db = new Sequlize('postgres://localhost:5432/wikistack')
+const db = new Sequlize('postgres://localhost:5432/wikistack', {logging: false})
 
 db.authenticate().
 then(() => {
@@ -7,25 +7,40 @@ then(() => {
 })
 
 const Page = db.define('page', {
-    title: Sequlize.STRING,
-    slug: Sequlize.STRING,
-    content: Sequlize.TEXT,
-    status: Sequlize.BOOLEAN
-})
-
-const User = db.define('user', {
-    name: Sequlize.STRING,
-    email: {
-       type: Sequlize.STRING,
-       validate: {isEmail: true}
+    title: {
+      type: Sequlize.STRING ,
+      allowNull: false
+    },
+    slug: {
+      type: Sequlize.STRING,
+      allowNull: false
+    },
+    content: {
+      type: Sequlize.TEXT,
+      allowNull: false
+    },
+    status: {
+      type: Sequlize.ENUM('open', 'closed')
     }
 })
 
+const User = db.define('user', {
+    name: {
+      type: Sequlize.STRING,
+      allowNull: false
+    },
+    email: {
+       type: Sequlize.STRING,
+       allowNull: false,
+       validate: {
+         isEmail: true
+       }
+    }
+})
 
+module.exports = {
+  db,
+  Page,
+  User
+}
 
-
-
-
-
-
-module.exports = {db}
