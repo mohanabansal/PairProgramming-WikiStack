@@ -1,6 +1,5 @@
 const express = require("express");
 const morgan = require("morgan");
-// const views = require("./views")
 const { db } = require("./views/models");
 const { Page, User } = require("./views/models/index");
 const wikiRouter = require('./routes/wiki')
@@ -13,10 +12,12 @@ db.authenticate().then(() => {
 const app = express();
 
 app.use(morgan("dev"));
-
 app.use(express.static(__dirname + "/stylesheets"));
-
 app.use(express.urlencoded({extended: false}));
+
+app.get('/', (req, res) => {
+  res.redirect('/wiki')
+})
 
 app.use('/wiki', wikiRouter);
 
