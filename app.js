@@ -3,7 +3,8 @@ const morgan = require("morgan");
 // const views = require("./views")
 const { db } = require("./views/models");
 const { Page, User } = require("./views/models/index");
-const router = require('./routes/routes');
+const wikiRouter = require('./routes/wiki')
+const userRouter = require('./routes/user')
 
 db.authenticate().then(() => {
   console.log("connected to the database");
@@ -15,7 +16,8 @@ app.use(morgan("dev"));
 
 app.use(express.static(__dirname + "/stylesheets"));
 
-// app.use( router)
+app.use('/wiki', wikiRouter)
+
 
 const connect = async () => {
   await db.sync();
@@ -28,5 +30,5 @@ app.get("/", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Listening to port 3000");
+  console.log("http://localhost:3000");
 });
