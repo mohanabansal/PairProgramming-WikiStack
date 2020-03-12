@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon /Users/arielledomantay/GHJunior/WeekTwo/Day4/wikistack/app.js"
+    "start": "nodemon /Users/MohanaBansal/Documents/MOHANA/Grace_Hopper/Junior_Phase/Week2/PairProgramming-WikiStack/app.js"
   },
   "keywords": [],
   "author": "",

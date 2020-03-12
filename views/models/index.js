@@ -13,7 +13,7 @@ const Page = db.define('page', {
     },
     slug: {
       type: Sequlize.STRING,
-      allowNull: false
+      // allowNull: false
     },
     content: {
       type: Sequlize.TEXT,
