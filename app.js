@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.use('/wiki', wikiRouter);
 
 const connect = async () => {
-  await db.sync({force: true});
+  await db.sync();
 };
 
 connect();
